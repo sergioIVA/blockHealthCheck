@@ -1,0 +1,33 @@
+jasypt:
+   encryptor:
+      password: ${jasyptpwd}
+      algorithm: PBEWithMD5AndDES
+
+spring:
+   datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbcUrl: jdbc:mysql://localhost:3306/prueba?serverTimezone=UTC
+      username: root
+      password: 
+      hikari:
+         poolName: pool
+         
+         
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+        exclude: env,beans
+  endpoint:
+    health:
+      show-details: ALWAYS         
+
+server:
+   port: 8083
+   servlet:
+      context-path: /microservicio
+      
+
+   
